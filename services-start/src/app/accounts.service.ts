@@ -1,5 +1,5 @@
 import { LoggingService } from "./logging.service";
-import { Inject, Injectable } from "@angular/core";
+import { Injectable, EventEmitter } from "@angular/core";
 
 @Injectable()
 export class AccountServices{
@@ -18,6 +18,7 @@ export class AccountServices{
         }
       ];
 
+      statusUpdated = new EventEmitter<string>();
       constructor(private loggingService: LoggingService){ }
 
       addAccount(name: string, status: string) {
